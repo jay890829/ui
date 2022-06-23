@@ -4,9 +4,14 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 
 import MainWindow as ui
+import AboutWindow as about
 import xml.etree.ElementTree as ET
 import glob
 #import entry
+class About(QWidget, about.Ui_AboutWindow):
+    def __init__(self, parent=None):
+        super(About, self).__init__(parent)
+        self.setupUi(self)
 
 class Main(QMainWindow, ui.Ui_MainWindow):
     def __init__(self):
@@ -22,6 +27,7 @@ class Main(QMainWindow, ui.Ui_MainWindow):
         self.number_of_section = 7
         self.type_of_parts = 'A'
         self.mode = 0
+        self.aboutwindow = About()
         
 
         self.setupUi(self)
@@ -39,13 +45,15 @@ class Main(QMainWindow, ui.Ui_MainWindow):
         self.Start_Button.clicked.connect(self.Start_Button_clicked)
         self.section7_radiobutton.toggled.connect(self.section_number_radiobutton_toggled)
         self.section8_radiobutton.toggled.connect(self.section_number_radiobutton_toggled)
+        self.aboutbutton.clicked.connect(self.aboutbutton_clicked)
 
         for file in glob.glob(r'*.xml'):
             item = QListWidgetItem()
             item.setText(file)
             self.File_list.addItem(item)
             self.File_list.itemDoubleClicked.connect(self.List_item_double_clicked)
-    
+    def aboutbutton_clicked(self):
+        self.aboutwindow.show()
     def List_item_double_clicked(self, item):
         filename = item.text()
 

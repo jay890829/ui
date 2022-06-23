@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1020</width>
-    <height>749</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -599,6 +599,25 @@
      <string>資料夾</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="aboutbutton">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>30</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微軟正黑體</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>開發名單</string>
+   </property>
   </widget>
  </widget>
  <resources/>
