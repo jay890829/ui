@@ -21,7 +21,7 @@ from function.TypeCD_Find_Defect import *
 from function.Detect_ByContour import *
 
 
-def apply(file, save_path, input_mode, type_of_parts="A", width_of_column=0.65, area_of_column=11.4, num_of_section=8):
+def apply(file, save_path, input_mode, type_of_parts="A", width_of_column=0.65, area_of_column=11.4, num_of_section=8, JPG=True):
     Set_DefaultVal(file, type_of_parts, width_of_column, area_of_column, num_of_section)
 
     print(type_of_parts)
@@ -149,15 +149,16 @@ def apply(file, save_path, input_mode, type_of_parts="A", width_of_column=0.65, 
         # plt.show()
 
         _file = (file.split("\\")[-1] if input_mode == "path" else file.split("/")[-1])
-        # result_filename = file+"_"+name[i]+'_Arc.jpg'
-        # cv2.imwrite(result_filename, imgpart_Arclength)
-        result_filename = save_path + "/" + _file+"_"+name[i]+'_ArcContour.jpg'
-        cv2.imwrite(result_filename, imgpart_Arclength_contour)
-        # result_filename = file+"_"+name[i]+'ContourFull.jpg'
-        # cv2.imwrite(result_filename, img_full)
+        if (JPG):
+            # result_filename = file+"_"+name[i]+'_Arc.jpg'
+            # cv2.imwrite(result_filename, imgpart_Arclength)
+            result_filename = save_path + "/" + _file+"_"+name[i]+'_ArcContour.jpg'
+            cv2.imwrite(result_filename, imgpart_Arclength_contour)
+            # result_filename = file+"_"+name[i]+'ContourFull.jpg'
+            # cv2.imwrite(result_filename, img_full)
 
-        result_filename = save_path + "/" + _file+"_"+name[i]+'_Reason.jpg'
-        cv2.imwrite(result_filename, imgrgb_reason)
+            result_filename = save_path + "/" + _file+"_"+name[i]+'_Reason.jpg'
+            cv2.imwrite(result_filename, imgrgb_reason)
 
         offset_list[i] = settings.offset
         final_imgrgba = Total_Defect_Img(offset_list[i], imgpart_Arclength_contour, text, final_imgrgba)

@@ -13,10 +13,10 @@ def natural_sort(l):
     alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
     return sorted(l, key=alphanum_key)
 
-def enter(input_mode, file_or_path, type_, width, area, section, save_path):
+def enter(input_mode, file_or_path, type_, width, area, section, save_path, JPG):
     settings.init(0)
     if input_mode=='file':
-        ret_arclen, ret_area, ret_errormessage = apply(file_or_path, save_path, input_mode, type_, width, area, section)
+        ret_arclen, ret_area, ret_errormessage = apply(file_or_path, save_path, input_mode, type_, width, area, section, JPG)
         print(settings.error)
     elif input_mode == 'path':
         index = 0
@@ -26,7 +26,7 @@ def enter(input_mode, file_or_path, type_, width, area, section, save_path):
             for filename in natural_sort(glob.glob(file_or_path + "/*.dcm")):
                 print('---------- Start procssing ',filename,' ----------')
 
-                ret_arclen, ret_area, ret_errormessage = apply(filename, save_path, input_mode, type_, width, area, section)
+                ret_arclen, ret_area, ret_errormessage = apply(filename, save_path, input_mode, type_, width, area, section, JPG)
                 fin.write("File: " + filename.split("\\")[-1] + "\n")
 
                 max_len = 0

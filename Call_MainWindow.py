@@ -28,6 +28,7 @@ class Main(QMainWindow, ui.Ui_MainWindow):
         self.type_of_parts = 'A'
         self.mode = 0
         self.aboutwindow = About()
+        self.JPG = True
         
 
         self.setupUi(self)
@@ -41,6 +42,8 @@ class Main(QMainWindow, ui.Ui_MainWindow):
         self.Cancel_Button.clicked.connect(self.close)
         self.Filemode.toggled.connect(self.mode_radio_button_toggled)
         self.Pathmode.toggled.connect(self.mode_radio_button_toggled)
+        self.jpgmode.toggled.connect(self.jpg_radio_button_toggled)
+        self.nojpgmode.toggled.connect(self.jpg_radio_button_toggled)
         self.Choose_file_or_path_Button.clicked.connect(self.Choose_file_or_path_Button_clicked)
         self.Start_Button.clicked.connect(self.Start_Button_clicked)
         self.section7_radiobutton.toggled.connect(self.section_number_radiobutton_toggled)
@@ -170,6 +173,11 @@ class Main(QMainWindow, ui.Ui_MainWindow):
         elif (self.Pathmode.isChecked()):
             self.mode = 1
             self.Choose_file_or_path_Button.setText("選擇資料夾")
+    def jpg_radio_button_toggled(self):
+        if (self.jpgmode.isChecked()):
+            self.JPG = True
+        elif (self.nojpgmode.isChecked()):
+            self.JPG = False
 
     def Start_Button_clicked(self):
         if (self.mode == 0):
