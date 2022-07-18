@@ -157,8 +157,8 @@ def apply(file, save_path, input_mode, type_of_parts="A", width_of_column=0.65, 
             # result_filename = file+"_"+name[i]+'ContourFull.jpg'
             # cv2.imwrite(result_filename, img_full)
 
-            result_filename = save_path + "/" + _file+"_"+name[i]+'_Reason.jpg'
-            cv2.imwrite(result_filename, imgrgb_reason)
+            # result_filename = save_path + "/" + _file+"_"+name[i]+'_Reason.jpg'
+            # cv2.imwrite(result_filename, imgrgb_reason)
 
         offset_list[i] = settings.offset
         final_imgrgba = Total_Defect_Img(offset_list[i], imgpart_Arclength_contour, text, final_imgrgba)
