@@ -181,9 +181,9 @@ class Main(QMainWindow, ui.Ui_MainWindow):
 
     def Start_Button_clicked(self):
         if (self.mode == 0):
-            entry.enter("file", self.file_path_or_directory, self.type_of_parts, self.width_of_column, self.area_of_column, self.number_of_section, self.result_path)
+            entry.enter("file", self.file_path_or_directory, self.type_of_parts, self.width_of_column, self.area_of_column, self.number_of_section, self.result_path, self.JPG)
         else:
-            entry.enter("path", self.file_path_or_directory, self.type_of_parts, self.width_of_column, self.area_of_column, self.number_of_section, self.result_path)
+            entry.enter("path", self.file_path_or_directory, self.type_of_parts, self.width_of_column, self.area_of_column, self.number_of_section, self.result_path, self.JPG)
 
     def section_number_radiobutton_toggled(self):
         if (self.section7_radiobutton.isChecked()):
